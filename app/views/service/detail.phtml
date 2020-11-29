@@ -1,0 +1,32 @@
+<h3>DNS records</h3>
+
+<a href="<?= $basePath; ?>service/create" class="btn btn-default">
+    Create record
+</a>
+
+<table>
+    <thead>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Content</th>
+        <th>TTL</th>
+    </thead>
+    <tbody>
+        <?php foreach ( $records->items as $item ) : ?>
+            <tr>
+                <td>
+                    <?= $item->type; ?>
+                </td>
+                <td>
+                    <?= $item->name; ?>
+                </td>
+                <td>
+                    <?= $item->content; ?>
+                </td>
+                <td>
+                    <?= $item->ttl; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

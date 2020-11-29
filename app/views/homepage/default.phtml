@@ -1,0 +1,27 @@
+<h1>Homepage</h1>
+
+<table><thead>
+    <th>
+        Id
+    </th>
+    <th>
+        Name
+    </th>
+</thead><tbody>
+    <?php
+
+                use App\Route;
+
+foreach( $zones_data as $item ) : ?>
+    <tr>
+        <td>
+            <?= $item->id; ?>
+        </td>
+        <td>
+            <a href="<?= Route::getUri()->root; ?>service/<?= $item->name; ?>">
+            <?= $item->name; ?>
+            </a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody></table>

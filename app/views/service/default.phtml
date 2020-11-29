@@ -1,0 +1,27 @@
+<h1>Services</h1>
+
+<table>
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+    </thead>
+    <tbody>
+
+        <?php foreach( $zones_data->items as $item ) : ?>
+        <tr>
+            <td>
+                <?= $item->id; ?>
+            </td>
+            <td>
+                <a href="<?= $basePath; ?>service/<?=$item->name;?>">
+                    <?= $item->name; ?>
+                </a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
