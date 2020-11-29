@@ -18,7 +18,7 @@ foreach( $zones_data as $item ) : ?>
             <?= $item->id; ?>
         </td>
         <td>
-            <a href="<?= Route::getUri()->root; ?>service/<?= $item->name; ?>">
+            <a href="<?=$basePath;?>service/<?= $item->name; ?>">
             <?= $item->name; ?>
             </a>
         </td>

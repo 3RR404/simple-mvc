@@ -38,6 +38,8 @@ class Controller
         }
     }
 
+    protected function getParams() { return $this->params; }
+
     protected function startup() : void {}
 
     protected function default() : void {}
@@ -54,6 +56,8 @@ class Controller
     function __construct( $target )
     {
         $this->target = $target;
+
+        $this->params = $target;
 
         $action = $target->action;
         $actionArg1 = $target->id;
@@ -81,8 +85,26 @@ class Controller
         
         $this->template->content = $this->view;
         $this->template->basePath = Route::getUri()->root;
+        $this->template->params = Route::getParams();
         
         $base_layout->render( $this->template );
 
+    }
+
+    public function returnJsonResponse( $response )
+    {
+        header('Content-Type: application/json');
+        
+        if ( $response instanceof Response )
+            $result = json_encode([
+                'type' => $response->getType(),
+                'title' => $response->getTitle(),
+                'message' => $response->getMessage()
+            ]);
+        
+        else $result = json_encode( $response );
+
+        echo $result;
+        exit;
     }
 }

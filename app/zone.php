@@ -3,5 +3,5 @@
 class Zone extends Base
 {
     public function default() : void {  }
-    public function detail() : void {  }
+    public function detail( $id ) : void {  }
 }

@@ -1,0 +1,344 @@
+<?php if ( $record_type === 'A' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">IPv4 address</label>
+        <input type="text" name="content" id="content" class="form-control" placeholder="127.0.0.1" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="reset" class="btn btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'AAAA' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA" selected>AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">IPv6 address</label>
+        <input type="text" name="content" id="content" class="form-control" placeholder="2001:db8::3" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'MX' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX" selected>MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">Mail server (plain text only)</label>
+        <input type="text" name="content" id="content" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="record_priority">Record priority</label>
+        <input type="number" name="prio" id="record_priority" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'ANAME' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME" selected>ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">Only for main domain</label>
+        <input type="text" name="name" id="name" class="form-control" readonly value="<?=$service_id;?>">
+    </div>
+    <div class="form-group">
+        <label for="content">For domain</label>
+        <input type="text" name="content" id="content" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'CNAME' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME" selected>CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">Domain (plain text only)</label>
+        <input type="text" name="content" id="content" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'TXT' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT" selected>TXT</option>
+            <option value="SRV">SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">Value</label>
+        <input type="text" name="content" id="content" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'SRV' ) : ?>
+
+<form>
+    <div class="form-group">
+        <label for="record_type">Record type</label>
+        <select name="type" id="record_type" class="form-control">
+            <option value="A">A</option>
+            <option value="AAAA">AAAA</option>
+            <option value="MX">MX</option>
+            <option value="ANAME">ANAME</option>
+            <option value="CNAME">CNAME</option>
+            <option value="NS" disabled>NS</option>
+            <option value="TXT">TXT</option>
+            <option value="SRV" selected>SRV</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">For subdomain</label>
+        <div class="input-group">
+            <input type="text" name="name" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <span class="input-group-text">.<?=$service_id;?></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content">Service
+            <small>The canonical hostname of the machine providing the service</small>
+        </label>
+        <input type="text" name="content" id="content" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="record_priority">Record priority</label>
+        <input type="number" name="prio" id="record_priority" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="port">Port
+            <small>The TCP or UDP port on which the service is to be found</small>
+        </label>
+        <input type="number" name="port" id="port" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight
+            <small>a relative weight for records with the same priority</small>
+        </label>
+        <input type="number" name="weight" id="weight" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="ttl">TTL (optional)</label>
+        <div class="input-group">
+            <input type="number" name="ttl" id="ttl" class="form-control" placeholder="600">
+            <div class="input-group-append">
+                <span class="input-group-text">sec</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <button type="submit" class="btn-primary">Add</button>
+    <button type="reset" class="btn-secondary">Reset</button>
+</form>
+
+<?php endif; ?>
+
+<?php if ( $record_type === 'NS' ) : ?>
+
+    <form>
+        For this domain disabled. Contact support please.
+    </form>
+
+<?php endif; ?>

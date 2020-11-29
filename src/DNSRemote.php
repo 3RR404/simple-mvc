@@ -33,6 +33,13 @@ class DNSRemote
         $this->csecret = $api_secret;
     }
 
+    function __get( $name )
+    {
+        $response = $this->getResponse();
+
+        return $response->{$name};
+    }
+
     public function setPath( ?string $path = 'user/self' ) : void
     {
         $this->path = "/v1/$path";
@@ -65,6 +72,9 @@ class DNSRemote
             'Content-Type: application/json',
         ]);
 
+        if ( $this->method === 'DELETE' )
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+
         if ( $this->data && !empty( $this->data ) ) curl_setopt($ch, CURLOPT_POSTFIELDS, $this->data);;
         
         $this->response = curl_exec($ch);
@@ -75,9 +85,17 @@ class DNSRemote
     
     public function getJsonResponse() : string
     {
+        header('Content-Type: application/json');
+        
         return $this->response;
+        exit;
     }
-    
+
+    public function getResponse() : object
+    {
+        return json_decode( $this->response );
+    }
+
     /**
      * List all of services
      * @param int $service_id - ID of service
@@ -104,7 +122,7 @@ class DNSRemote
     public function getRecord( string $service_id, ?string $domain_name = null ) : self
     {
         $path = $domain_name ? "user/$service_id/zone/$domain_name/record" : "user/$service_id/zone";
-        
+
         $this->setPath( $path );
         $this->setMethod();
 
@@ -120,6 +138,18 @@ class DNSRemote
         $this->setPath( $path );
         $this->setMethod('post');
         $this->setData( $data );
+
+        return $this->connect();
+    }
+
+    public function deleteRecord( string $service_id, string $domain_name, string $record_id )
+    {
+        $path = "user/self/zone/$domain_name/record/$record_id";
+
+        $this->setPath( $path );
+        $this->setMethod('delete');
+
+        return $this->connect();
     }
 
 }

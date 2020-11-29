@@ -9,9 +9,9 @@ class Homepage extends Base
     {
         parent::startup();
 
-        $zones_data = \json_decode( $this->response->getZones( $this->services->id )->getJsonResponse() );
+        $zones_data = $this->DNSresponse->getZones( $this->services->id )->getResponse();
         $this->template->zones_data = $zones_data->items;
     }
 
-    public function default() {}
+    public function default() : void {}
 }

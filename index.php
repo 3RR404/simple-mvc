@@ -1,15 +1,17 @@
 <?php
 
-require_once "./src/DNSRemote.php";
-require_once "./src/Route.php";
-require_once './src/Controller.php';
-require_once './src/Application.php';
+require_once __DIR__ . "/src/DNSRemote.php";
+require_once __DIR__ . "/src/Route.php";
+require_once __DIR__ . '/src/Controller.php';
+require_once __DIR__ . '/src/Application.php';
+require_once __DIR__ . '/src/Interfaces/IResponse.php';
+require_once __DIR__ . '/src/Response.php';
 
 use App\Application;
 use App\Route;
 
-define( 'ROOT_DIR', __DIR__ );
-define( 'APP_DIR', ROOT_DIR . "/app" );
+define( 'APP_ROOT', __DIR__ );
+define( 'APP_DIR', APP_ROOT . "/app" );
 
 Route::add('/', [
     'controller' => 'homepage',

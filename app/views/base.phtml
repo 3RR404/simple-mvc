@@ -1,15 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$title;?></title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <?php /* <link rel="stylesheet" href="style.css"> */ ?>
+    <title><?= $title; ?></title>
 </head>
-<body>
-    <div class="container">
-        Application
 
-        <?= $content->render() ?>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 my-2">
+                    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                        <a class="navbar-brand" href="#">3RR404 App</a>
+                        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="collapsibleNavId">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="<?=$basePath;?>">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?=$basePath;?>service">Services</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <?= $content->render() ?>
+            </div>
+        </div>
     </div>
+
+    <footer class="py-5">
+        <div class="text-center">
+            20<?=date('y')?> &copy; Copyright &middot; err404App &middot;  Distributed with MIT licence
+        </div>
+    </footer>
+    <script>
+        const App = {
+            basePath : "<?=$basePath;?>",
+            controller : "<?= $params->controller ?>",
+            action : "<?= $params->action ?>",
+            id : "<?= $params->id ?>"
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="<?=$basePath;?>js/app.js"></script>
 </body>
+
 </html>

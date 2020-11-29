@@ -1,18 +1,19 @@
 <h3>DNS records</h3>
 
-<a href="<?= $basePath; ?>service/create" class="btn btn-default">
+<a href="<?= $basePath; ?>service/create/<?=$service_id;?>" class="btn btn-outline-primary my-2">
     Create record
 </a>
 
-<table>
+<table class="table">
     <thead>
         <th>Type</th>
         <th>Name</th>
         <th>Content</th>
         <th>TTL</th>
+        <th>Actions</th>
     </thead>
     <tbody>
-        <?php foreach ( $records->items as $item ) : ?>
+        <?php foreach ( $records as $item ) : ?>
             <tr>
                 <td>
                     <?= $item->type; ?>
@@ -25,6 +26,11 @@
                 </td>
                 <td>
                     <?= $item->ttl; ?>
+                </td>
+                <td align="right">
+                    <a href="#" data-record-id="<?=$item->id;?>" class="btn btn-outline-danger btn-sm delete">
+                        <i class="fas fa-times"></i>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -89,7 +89,7 @@ class Route
         $params = explode( '/', $path );
 
         self::$params = (object)[
-            'controller' => $params[0],
+            'controller' => @$params[0] ? $params[0] : 'default',
             'action' => @$params[1] ? $params[1] : 'default',
             'id' => @$params[2] ? $params[2] : (@$params[1] ? $params[1] : null)
         ];
